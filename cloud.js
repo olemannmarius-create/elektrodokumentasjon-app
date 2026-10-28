@@ -121,7 +121,7 @@
         auth: { storage: window.sessionStorage, storageKey: 'elektro-cloud-auth', persistSession: true, autoRefreshToken: true, detectSessionInUrl: true }
       });
       client.auth.onAuthStateChange((event, session) => {
-        if (event === 'PASSWORD_RECOVERY') recovery = true;
+        if (event === 'PASSWORD_RECOVERY') { recovery = true; $('cloudAccount').open = true; }
         renderSession(session);
         if (event === 'SIGNED_OUT') message('Du er logget ut. Lokale dokumenter er fortsatt på denne enheten.');
         if (event === 'PASSWORD_RECOVERY') message('Velg et nytt passord nedenfor.');

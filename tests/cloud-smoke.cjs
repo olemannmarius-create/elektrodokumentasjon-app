@@ -50,6 +50,12 @@ async function ready(page) {
   await page.goto(base);
   await page.waitForFunction(() => window.appStorageReady);
   await page.waitForFunction(() => !document.getElementById('cloudLoginForm').hidden);
+  assert.equal(await page.locator('#cloudLoginForm').isVisible(), false);
+  await page.locator('#cloudHeading').click();
+  assert.equal(await page.locator('#cloudLoginForm').isVisible(), true);
+  await page.locator('#cloudHeading').click();
+  assert.equal(await page.locator('#cloudLoginForm').isVisible(), false);
+  await page.locator('#cloudHeading').click();
 }
 async function login(page, email) {
   await page.locator('#cloudEmail').fill(email);
