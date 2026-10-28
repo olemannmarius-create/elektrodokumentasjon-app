@@ -1,0 +1,12 @@
+{
+  "name": "elektrodokumentasjon-app",
+  "private": true,
+  "scripts": {
+    "test:rls": "node tests/cloud-rls.cjs",
+    "test:browser": "node tests/cloud-smoke.cjs"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.3.14",
+    "playwright": "1.62.1"
+  }
+}
